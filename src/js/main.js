@@ -32,7 +32,7 @@ let textoAMostrar = [
 console.log(textoAMostrar);
 
 // Punto 4 del ejercicio  
-let promptFunction = (data1,data2) => {
+let darColorNombre = (data1,data2) => {
     let promptValues = prompt("¿En caso de querer remarcar el nombre con un color,escribalo en ingles,ej 'blue', 'red',etc?");
     data1.style.backgroundColor=`${promptValues}`
     data2.style.backgroundColor=`${promptValues}`
@@ -42,31 +42,71 @@ let promptFunction = (data1,data2) => {
   };
 
   //Punto 3 del ejercicio - segunda parte
-let coinciencia = (nameOneFirstInt, nameTwoFirstInt, nameOneSecondInt, nameTwoSecondInt) => {
+let coincienciaNombre = (nameOneFirstInt, nameTwoFirstInt, nameOneSecondInt, nameTwoSecondInt) => {
   //evalua coincidencia en primer nombre
   if (nameOneFirstInt.textContent == nameOneSecondInt.textContent) {
     alert(`Hubo coincidencia en el nombre ${nameOneFirstInt.textContent} `);
-    promptFunction(nameOneFirstInt,nameOneSecondInt);
+    darColorNombre(nameOneFirstInt,nameOneSecondInt);
   } else if (nameOneFirstInt.textContent == nameTwoSecondInt.textContent) {
     alert(`Hubo coincidencia en el nombre ${nameOneFirstInt.textContent} `),
-    promptFunction(nameOneFirstInt,nameTwoSecondInt);
+    darColorNombre(nameOneFirstInt,nameTwoSecondInt);
   } else if (nameTwoFirstInt.textContent == nameOneSecondInt.textContent) {
     alert(`Hubo coincidencia en el nombre ${nameTwoFirstInt.textContent} `);
-    promptFunction(nameTwoFirstInt,nameOneSecondInt);
+    darColorNombre(nameTwoFirstInt,nameOneSecondInt);
   } else if (nameTwoFirstInt.textContent == nameTwoSecondInt.textContent) {
     alert(`Hubo coincidencia en el nombre ${nameTwoFirstInt.textContent} `);
-    promptFunction(nameTwoFirstInt,nameTwoSecondInt);
+    darColorNombre(nameTwoFirstInt,nameTwoSecondInt);
     //si no encuentra nada
   } else {
-    alert("No hubo coincidencias");
+    alert("No hubo coincidencias en el nombre");
   }
 };
 
-coinciencia(
-  dd[0],
-  dd[1],
-  dd[4],
-  dd[5]
-);
+//Punto 5 del ejercicio 
+let darColorApellido = (data1,data2) => {
+    let promptValues = prompt("¿En caso de querer remarcar el nombre con un color,escribalo en ingles,ej 'blue', 'red',etc?");
+    data1.style.backgroundColor=`${promptValues}`
+    data2.style.backgroundColor=`${promptValues}`
+    // data.style.background="red"
+    console.log(data1);
+    console.log(promptValues)
+  };
 
-//Punto 5 del ejercicio
+let  coincidenciaApellido = (apellidoOneFirstInt, apellidoTwoFirstInt, apellidoOneSecondInt, apellidoTwoSecondInt)=>{
+    let isApellido = confirm ("¿Desea comprar apellidos?")
+    if (isApellido == true){
+        if (apellidoOneFirstInt.textContent == apellidoOneSecondInt.textContent) {
+            alert(`Hubo coincidencia en el apellido ${apellidoOneFirstInt.textContent} `);
+            darColorApellido(apellidoOneFirstInt,apellidoOneSecondInt);
+          } else if (apellidoOneFirstInt.textContent == apellidoTwoSecondInt.textContent) {
+            alert(`Hubo coincidencia en el apellido ${apellidoOneFirstInt.textContent} `),
+            darColorApellido(apellidoOneFirstInt,apellidoTwoSecondInt);
+          } else if (apellidoTwoFirstInt.textContent == apellidoOneSecondInt.textContent) {
+            alert(`Hubo coincidencia en el apellido ${apellidoTwoFirstInt.textContent} `);
+            darColorApellido(apellidoTwoFirstInt,apellidoOneSecondInt);
+          } else if (apellidoTwoFirstInt.textContent == apellidoTwoSecondInt.textContent) {
+            alert(`Hubo coincidencia en el apellido ${apellidoTwoFirstInt.textContent} `);
+            darColorApellido(apellidoTwoFirstInt,apellidoTwoSecondInt);
+            //si no encuentra nada
+          } else {
+            alert("No hubo coincidencias en el apellido");
+          }
+        };
+    }
+
+//Boton comparar
+let boton = document.querySelector('button')
+boton.addEventListener("click",()=>{
+    coincienciaNombre(
+        dd[0],
+        dd[1],
+        dd[4],
+        dd[5]
+      );
+    coincidenciaApellido(
+        dd[2],
+        dd[3],
+        dd[6],
+        dd[7]
+      );
+})
