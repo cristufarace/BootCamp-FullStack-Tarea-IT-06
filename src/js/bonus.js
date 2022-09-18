@@ -38,7 +38,7 @@ let coincidenciaNombre = (
   nameTwoSecondInt
 ) => {
   //evalua coincidencia en primer nombre
-  let isNombre = confirm("¿Desea comprar Nombres?");
+  let isNombre = confirm("¿Desea comprar nombres?");
   if (isNombre == true) {
     //nombre1-int1 vs nombre1-int2
     if (nameOneFirstInt.textContent == nameOneSecondInt.textContent) {
