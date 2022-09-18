@@ -27,7 +27,7 @@ formulario.addEventListener ("submit", function (event) {
     // console.log(td[0]);
 })
 
-// Punto 4 del ejercicio  
+// Funcion que da color al nombre 
 let darColorNombre = (data1,data2) => {
     let promptValues = prompt("¿En caso de querer remarcar el nombre con un color,escribalo en ingles,ej 'blue', 'red',etc?");
     data1.style.backgroundColor=`${promptValues}`
@@ -37,28 +37,34 @@ let darColorNombre = (data1,data2) => {
     // console.log(promptValues)
   };
 
-  //Punto 3 del ejercicio - segunda parte
-let coincidenciaApellido = (nameOneFirstInt, nameTwoFirstInt, nameOneSecondInt, nameTwoSecondInt) => {
+  //Funcion que evalua nombres
+let coincidenciaNombre = (nameOneFirstInt, nameTwoFirstInt, nameOneSecondInt, nameTwoSecondInt) => {
   //evalua coincidencia en primer nombre
+  let isNombre = confirm ("¿Desea comprar Nombres?")
+  if(isNombre == true) {
+    //nombre1-int1 vs nombre1-int2
   if (nameOneFirstInt.textContent == nameOneSecondInt.textContent) {
-    alert(`Hubo coincidencia en el apellido ${nameOneFirstInt.textContent} `);
+    alert(`Hubo coincidencia en el nombre ${nameOneFirstInt.textContent} `);
     darColorNombre(nameOneFirstInt,nameOneSecondInt);
-  } else if (nameOneFirstInt.textContent == nameTwoSecondInt.textContent) {
-    alert(`Hubo coincidencia en el apellido ${nameOneFirstInt.textContent} `),
+    //nombre1-int1 vs nombre2-int2
+  }  if (nameOneFirstInt.textContent == nameTwoSecondInt.textContent) {
+    alert(`Hubo coincidencia en el nombre ${nameOneFirstInt.textContent} `),
     darColorNombre(nameOneFirstInt,nameTwoSecondInt);
-  } else if (nameTwoFirstInt.textContent == nameOneSecondInt.textContent) {
-    alert(`Hubo coincidencia en el apellido ${nameTwoFirstInt.textContent} `);
+      //nombre2-int1 vs nombre1-int2
+  }  if (nameTwoFirstInt.textContent == nameOneSecondInt.textContent) {
+    alert(`Hubo coincidencia en el nombre ${nameTwoFirstInt.textContent} `);
     darColorNombre(nameTwoFirstInt,nameOneSecondInt);
-  } else if (nameTwoFirstInt.textContent == nameTwoSecondInt.textContent) {
-    alert(`Hubo coincidencia en el apellido ${nameTwoFirstInt.textContent} `);
+     //nombre2-int1 vs nombre2-int2
+  }  if (nameTwoFirstInt.textContent == nameTwoSecondInt.textContent) {
+    alert(`Hubo coincidencia en el nombre ${nameTwoFirstInt.textContent} `);
     darColorNombre(nameTwoFirstInt,nameTwoSecondInt);
     //si no encuentra nada
   } else {
-    alert("No hubo coincidencias en el apellido");
-  }
+    alert("No hubo coincidencias en el nombre");
+  }}
 };
 
-//Punto 5 del ejercicio 
+//Funcion que da color al apellido
 let darColorApellido = (data1,data2) => {
     let promptValues = prompt("¿En caso de querer remarcar el apellido con un color,escribalo en ingles,ej 'blue', 'red',etc?");
     data1.style.backgroundColor=`${promptValues}`
@@ -68,40 +74,39 @@ let darColorApellido = (data1,data2) => {
     // console.log(promptValues)
   };
 
-let  coincienciaNombre= (apellidoOneFirstInt, apellidoTwoFirstInt, apellidoOneSecondInt, apellidoTwoSecondInt)=>{
-    let isApellido = confirm ("¿Desea comprar nombres?")
-    if (isApellido == true){
+//Funcion que evalua apellido
+let  coincienciaApellido= (apellidoOneFirstInt, apellidoTwoFirstInt, apellidoOneSecondInt, apellidoTwoSecondInt)=>{
+    
+    
         if (apellidoOneFirstInt.textContent == apellidoOneSecondInt.textContent) {
-            alert(`Hubo coincidencia en el nombre ${apellidoOneFirstInt.textContent} `);
+            alert(`Hubo coincidencia en el apellido ${apellidoOneFirstInt.textContent} `);
             darColorApellido(apellidoOneFirstInt,apellidoOneSecondInt);
-          } else if (apellidoOneFirstInt.textContent == apellidoTwoSecondInt.textContent) {
-            alert(`Hubo coincidencia en el nombre ${apellidoOneFirstInt.textContent} `),
+          }  if (apellidoOneFirstInt.textContent == apellidoTwoSecondInt.textContent) {
+            alert(`Hubo coincidencia en el apellido ${apellidoOneFirstInt.textContent} `),
             darColorApellido(apellidoOneFirstInt,apellidoTwoSecondInt);
-          } else if (apellidoTwoFirstInt.textContent == apellidoOneSecondInt.textContent) {
-            alert(`Hubo coincidencia en el nombre ${apellidoTwoFirstInt.textContent} `);
+          }  if (apellidoTwoFirstInt.textContent == apellidoOneSecondInt.textContent) {
+            alert(`Hubo coincidencia en el apellido ${apellidoTwoFirstInt.textContent} `);
             darColorApellido(apellidoTwoFirstInt,apellidoOneSecondInt);
-          } else if (apellidoTwoFirstInt.textContent == apellidoTwoSecondInt.textContent) {
-            alert(`Hubo coincidencia en el nombre ${apellidoTwoFirstInt.textContent} `);
+          }  if (apellidoTwoFirstInt.textContent == apellidoTwoSecondInt.textContent) {
+            alert(`Hubo coincidencia en el apellido ${apellidoTwoFirstInt.textContent} `);
             darColorApellido(apellidoTwoFirstInt,apellidoTwoSecondInt);
             //si no encuentra nada
           } else {
             alert("No hubo coincidencias en el apellido");
-          }
         };
     }
-
 //Boton comparar
 let boton = document.querySelector('button')
 boton.addEventListener("click",()=>{
     let td = document.querySelectorAll("td");
     // console.log(td[0]);
-    coincidenciaApellido(
+    coincienciaApellido(
         td[0],
         td[1],
         td[4],
         td[5]
       );
-    coincienciaNombre(
+      coincidenciaNombre(
         td[2],
         td[3],
         td[6],
