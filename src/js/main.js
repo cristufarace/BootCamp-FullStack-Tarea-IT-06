@@ -94,7 +94,7 @@ let  coincidenciaApellido = (apellidoOneFirstInt, apellidoTwoFirstInt, apellidoO
         };
     }
 
-//Boton comparar
+// Boton comparar
 let boton = document.querySelector('button')
 boton.addEventListener("click",()=>{
     coincienciaNombre(
